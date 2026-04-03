@@ -6,298 +6,340 @@
 <title>沖縄バス株式会社｜新人乗務員研修 設計提案</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --blue: #1A5FA0;
-    --blue-dark: #0A3D6B;
-    --blue-mid: #2272B8;
-    --blue-light: #4A90C8;
-    --blue-pale: #EAF3FB;
-    --white: #FFFFFF;
-    --text: #1A1A1A;
-    --text-muted: #555;
-    --border: #C8DFF0;
-    --cream: #F7FAFD;
+  :root { --blue:#1A5FA0;--blue-dark:#0A3D6B;--blue-light:#4A90C8;--blue-pale:#EAF3FB;--white:#FFFFFF;--text:#1A1A1A;--text-muted:#555;--border:#C8DFF0;--cream:#F7FAFD;--green:#1A7A4A;--green-pale:#E8F5EE; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{font-size:18px}
+  body{font-family:'Noto Sans JP',sans-serif;background:var(--cream);color:var(--text);line-height:1.9}
+  .top-stripe{height:6px;background:linear-gradient(90deg,var(--blue-dark) 0%,var(--blue) 50%,var(--blue-light) 100%)}
+  header{background:var(--blue-dark);color:var(--white)}
+  .header-inner{max-width:900px;margin:0 auto;padding:48px 40px 40px}
+  .header-label{font-size:11px;letter-spacing:4px;color:var(--blue-light);font-weight:700;text-transform:uppercase;margin-bottom:16px}
+  header h1{font-family:'Noto Serif JP',serif;font-size:clamp(24px,4vw,40px);font-weight:900;line-height:1.4}
+  header h1 .company{display:block;font-size:clamp(13px,2vw,17px);font-weight:400;color:rgba(255,255,255,0.6);margin-bottom:6px;letter-spacing:2px}
+  .header-tagline{margin-top:24px;padding:18px 22px;border-left:3px solid var(--blue-light);background:rgba(255,255,255,0.05);border-radius:0 4px 4px 0}
+  .header-tagline p{font-family:'Noto Serif JP',serif;font-size:clamp(14px,2.2vw,19px);color:rgba(255,255,255,0.9);line-height:1.7}
+  .header-tagline .sub{font-size:13px;color:rgba(255,255,255,0.5);margin-top:6px;font-family:'Noto Sans JP',sans-serif;font-weight:300}
+  .header-meta{margin-top:24px;display:flex;gap:20px;font-size:12px;color:rgba(255,255,255,0.4);flex-wrap:wrap}
+  .tab-nav{background:var(--blue-dark);border-top:1px solid rgba(255,255,255,0.1);position:sticky;top:0;z-index:100}
+  .tab-nav-inner{max-width:900px;margin:0 auto;display:flex;padding:0 40px}
+  .tab-btn{padding:16px 32px;font-size:15px;font-weight:700;color:rgba(255,255,255,0.5);background:none;border:none;border-bottom:3px solid transparent;cursor:pointer;transition:all 0.2s;font-family:'Noto Sans JP',sans-serif;white-space:nowrap}
+  .tab-btn:hover{color:rgba(255,255,255,0.8)}
+  .tab-btn.active{color:var(--white);border-bottom-color:var(--blue-light)}
+  .tab-content{display:none}
+  .tab-content.active{display:block}
+  .section{max-width:900px;margin:0 auto;padding:56px 40px}
+  .section-label{font-size:11px;letter-spacing:4px;color:var(--blue);font-weight:700;text-transform:uppercase;margin-bottom:10px}
+  .section-title{font-family:'Noto Serif JP',serif;font-size:clamp(19px,3vw,28px);font-weight:700;color:var(--blue-dark);margin-bottom:32px;padding-bottom:14px;border-bottom:2px solid var(--blue);display:inline-block}
+  .purpose-box{background:var(--blue-dark);color:var(--white);border-radius:6px;padding:36px;margin-bottom:24px}
+  .purpose-quote{font-family:'Noto Serif JP',serif;font-size:clamp(16px,2.8vw,22px);font-weight:700;line-height:1.6}
+  .purpose-quote em{color:#7EC8F0;font-style:normal}
+  .purpose-desc{margin-top:18px;font-size:15px;color:rgba(255,255,255,0.65);line-height:1.9}
+  .purpose-pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+  .pill{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.8);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500}
+  .session-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+  .session-card{background:var(--white);border-radius:6px;overflow:hidden;box-shadow:0 2px 16px rgba(26,63,107,0.08);transition:transform 0.25s,box-shadow 0.25s}
+  .session-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(26,63,107,0.14)}
+  .session-header{background:var(--blue);padding:20px 22px;color:var(--white)}
+  .session-num{font-size:10px;letter-spacing:3px;color:rgba(255,255,255,0.6);font-weight:700;margin-bottom:5px}
+  .session-timing-tag{display:inline-block;background:rgba(255,255,255,0.15);font-size:11px;padding:2px 10px;border-radius:10px;color:rgba(255,255,255,0.7);margin-bottom:8px}
+  .session-theme{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:700;line-height:1.4}
+  .session-body{padding:20px 22px}
+  .session-question{font-size:13px;color:var(--blue);font-weight:700;background:var(--blue-pale);padding:10px 14px;border-radius:4px;margin-bottom:14px;line-height:1.6}
+  .session-items{list-style:none;font-size:14px;color:var(--text-muted)}
+  .session-items li{padding:5px 0 5px 18px;position:relative;border-bottom:1px solid var(--border)}
+  .session-items li:last-child{border-bottom:none}
+  .session-items li::before{content:'▸';color:var(--blue-light);position:absolute;left:0;font-size:12px;top:7px}
+  .detail-block{background:var(--white);border-radius:6px;padding:30px;margin-bottom:22px;box-shadow:0 2px 10px rgba(26,63,107,0.06);border-left:4px solid var(--blue)}
+  .detail-block h3{font-family:'Noto Serif JP',serif;font-size:19px;font-weight:700;color:var(--blue-dark);margin-bottom:18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .detail-block h3 .badge{background:var(--blue);color:var(--white);font-size:12px;padding:3px 10px;border-radius:10px;font-weight:500;font-family:'Noto Sans JP',sans-serif}
+  .tl-item{display:flex;gap:16px;padding:13px 0;border-bottom:1px dashed var(--border)}
+  .tl-item:last-child{border-bottom:none}
+  .tl-time{font-size:14px;color:var(--blue);font-weight:700;min-width:90px;padding-top:2px;white-space:nowrap}
+  .tl-text{font-size:15px;color:var(--text)}
+  .data-table{width:100%;border-collapse:collapse;font-size:15px;margin-top:4px}
+  .data-table th{background:var(--blue-dark);color:var(--white);padding:11px 16px;text-align:left;font-weight:500;font-size:14px}
+  .data-table td{padding:12px 16px;border-bottom:1px solid var(--border)}
+  .data-table tr:last-child td{border-bottom:none}
+  .data-table tr:nth-child(even) td{background:var(--blue-pale)}
+  .data-table .key{font-weight:700;color:var(--blue)}
+  .quote-box{background:var(--blue-pale);border-left:3px solid var(--blue);padding:16px 20px;border-radius:0 4px 4px 0;margin-top:14px;font-size:15px;color:var(--blue-dark);font-style:italic;font-family:'Noto Serif JP',serif;line-height:1.8}
+  .principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+  .principle-card{background:var(--white);border-radius:6px;padding:26px 22px;box-shadow:0 2px 10px rgba(26,63,107,0.06);border-top:3px solid var(--blue)}
+  .principle-num{font-size:44px;font-family:'Noto Serif JP',serif;font-weight:900;color:rgba(26,95,160,0.08);line-height:1;margin-bottom:4px}
+  .principle-title{font-weight:700;color:var(--blue-dark);font-size:15px;margin-bottom:8px}
+  .principle-desc{font-size:14px;color:var(--text-muted);line-height:1.8}
+  .steps-bg{background:var(--blue-dark)}
+  .steps-section{max-width:900px;margin:0 auto;padding:56px 40px}
+  .steps-section .section-label{color:var(--blue-light)}
+  .steps-section .section-title{color:var(--white);border-color:var(--blue-light)}
+  .step-list{list-style:none}
+  .step-item{display:flex;gap:18px;align-items:flex-start;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.1)}
+  .step-item:last-child{border-bottom:none}
+  .step-num{background:var(--blue);color:var(--white);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0;margin-top:2px}
+  .step-content strong{display:block;font-size:16px;margin-bottom:3px;color:var(--white)}
+  .step-content span{font-size:14px;color:rgba(255,255,255,0.55)}
+  /* 確認ページ */
+  .confirm-intro{background:var(--blue-dark);color:var(--white);border-radius:6px;padding:32px;margin-bottom:32px}
+  .confirm-intro p{font-size:15px;color:rgba(255,255,255,0.8);line-height:1.9}
+  .confirm-intro p+p{margin-top:12px}
+  .confirm-intro .note{font-size:13px;color:rgba(255,255,255,0.5);margin-top:16px;font-style:italic}
+  .confirm-block{background:var(--white);border-radius:6px;padding:32px;margin-bottom:24px;box-shadow:0 2px 10px rgba(26,63,107,0.06)}
+  .confirm-block-header{display:flex;align-items:center;gap:14px;margin-bottom:20px;padding-bottom:16px;border-bottom:2px solid var(--blue-pale)}
+  .confirm-num{background:var(--blue);color:var(--white);width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex-shrink:0}
+  .confirm-block-title{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:700;color:var(--blue-dark)}
+  .confirm-content{font-size:15px;color:var(--text);line-height:1.9;margin-bottom:20px}
+  .confirm-content ul{padding-left:20px;margin-top:10px}
+  .confirm-content ul li{margin-bottom:8px}
+  .confirm-content table{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
+  .confirm-content table th{background:var(--blue-dark);color:var(--white);padding:10px 14px;text-align:left}
+  .confirm-content table td{padding:10px 14px;border-bottom:1px solid var(--border)}
+  .confirm-content table tr:last-child td{border-bottom:none}
+  .confirm-content table tr:nth-child(even) td{background:var(--blue-pale)}
+  .confirm-check-area{background:var(--green-pale);border:2px solid #A8D5BC;border-radius:6px;padding:20px 24px}
+  .confirm-check-label{font-size:13px;font-weight:700;color:var(--green);margin-bottom:14px;letter-spacing:1px}
+  .check-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+  .check-row:last-child{margin-bottom:0}
+  .check-row input[type="checkbox"]{width:22px;height:22px;cursor:pointer;flex-shrink:0;margin-top:2px;accent-color:var(--green)}
+  .check-row label{font-size:15px;color:var(--text);cursor:pointer;line-height:1.6}
+  .comment-area{margin-top:14px}
+  .comment-area label{font-size:13px;color:var(--text-muted);display:block;margin-bottom:6px}
+  .comment-area textarea{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:4px;font-size:14px;font-family:'Noto Sans JP',sans-serif;line-height:1.7;resize:vertical;min-height:80px;color:var(--text);background:var(--white)}
+  .comment-area textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(26,95,160,0.1)}
+  .additional-section{background:var(--white);border-radius:6px;padding:32px;margin-bottom:24px;box-shadow:0 2px 10px rgba(26,63,107,0.06);border-left:4px solid var(--blue-light)}
+  .additional-section h3{font-family:'Noto Serif JP',serif;font-size:17px;font-weight:700;color:var(--blue-dark);margin-bottom:16px}
+  .additional-section ul{list-style:none}
+  .additional-section ul li{padding:10px 0 10px 20px;position:relative;border-bottom:1px solid var(--border);font-size:15px}
+  .additional-section ul li:last-child{border-bottom:none}
+  .additional-section ul li::before{content:'●';color:var(--blue-light);position:absolute;left:0;font-size:10px;top:14px}
+  .submit-area{text-align:center;padding:40px 20px}
+  .submit-note{font-size:14px;color:var(--text-muted);margin-bottom:20px}
+  .print-btn{background:none;color:var(--blue);border:2px solid var(--blue);padding:14px 32px;font-size:15px;font-weight:700;border-radius:4px;cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:all 0.2s}
+  .print-btn:hover{background:var(--blue-pale)}
+  footer{background:#06213A;color:rgba(255,255,255,0.4);text-align:center;padding:28px 40px;font-size:12px;line-height:2}
+  footer strong{color:rgba(255,255,255,0.7)}
+  @media(max-width:600px){
+    .header-inner,.section,.steps-section{padding-left:20px;padding-right:20px}
+    .tab-btn{padding:14px 16px;font-size:14px}
+    .tab-nav-inner{padding:0 20px}
+    .purpose-box,.detail-block,.confirm-block,.additional-section{padding:22px 18px}
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { font-size: 18px; }
-  body { font-family: 'Noto Sans JP', sans-serif; background: var(--cream); color: var(--text); line-height: 1.9; }
-  .top-stripe { height: 6px; background: linear-gradient(90deg, var(--blue-dark) 0%, var(--blue) 50%, var(--blue-light) 100%); }
-  header { background: var(--blue-dark); color: var(--white); }
-  .header-inner { max-width: 900px; margin: 0 auto; padding: 64px 40px 56px; }
-  .header-label { font-size: 11px; letter-spacing: 4px; color: var(--blue-light); font-weight: 700; text-transform: uppercase; margin-bottom: 20px; }
-  header h1 { font-family: 'Noto Serif JP', serif; font-size: clamp(26px, 4.5vw, 44px); font-weight: 900; line-height: 1.4; margin-bottom: 8px; }
-  header h1 .company { display: block; font-size: clamp(14px, 2vw, 18px); font-weight: 400; color: rgba(255,255,255,0.6); margin-bottom: 8px; letter-spacing: 2px; }
-  .header-tagline { margin-top: 28px; padding: 20px 24px; border-left: 3px solid var(--blue-light); background: rgba(255,255,255,0.05); border-radius: 0 4px 4px 0; }
-  .header-tagline p { font-family: 'Noto Serif JP', serif; font-size: clamp(15px, 2.5vw, 20px); color: rgba(255,255,255,0.9); line-height: 1.7; }
-  .header-tagline .sub { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 8px; font-family: 'Noto Sans JP', sans-serif; font-weight: 300; }
-  .header-meta { margin-top: 32px; display: flex; gap: 24px; font-size: 12px; color: rgba(255,255,255,0.4); flex-wrap: wrap; }
-  .separator { height: 4px; background: var(--blue); }
-  .section { max-width: 900px; margin: 0 auto; padding: 64px 40px; }
-  .section-label { font-size: 11px; letter-spacing: 4px; color: var(--blue); font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
-  .section-title { font-family: 'Noto Serif JP', serif; font-size: clamp(20px, 3.5vw, 30px); font-weight: 700; color: var(--blue-dark); margin-bottom: 36px; padding-bottom: 16px; border-bottom: 2px solid var(--blue); display: inline-block; }
-  .purpose-box { background: var(--blue-dark); color: var(--white); border-radius: 6px; padding: 40px; margin-bottom: 24px; position: relative; overflow: hidden; }
-  .purpose-quote { font-family: 'Noto Serif JP', serif; font-size: clamp(17px, 3vw, 24px); font-weight: 700; line-height: 1.6; color: var(--white); }
-  .purpose-quote em { color: #7EC8F0; font-style: normal; }
-  .purpose-desc { margin-top: 20px; font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.9; }
-  .purpose-pills { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
-  .pill { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.8); padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 500; }
-  .session-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-  .session-card { background: var(--white); border-radius: 6px; overflow: hidden; box-shadow: 0 2px 16px rgba(26,63,107,0.08); transition: transform 0.25s, box-shadow 0.25s; }
-  .session-card:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(26,63,107,0.15); }
-  .session-header { background: var(--blue); padding: 22px 24px; color: var(--white); }
-  .session-num { font-size: 10px; letter-spacing: 3px; color: rgba(255,255,255,0.6); font-weight: 700; margin-bottom: 6px; }
-  .session-timing-tag { display: inline-block; background: rgba(255,255,255,0.15); font-size: 11px; padding: 2px 10px; border-radius: 10px; color: rgba(255,255,255,0.7); margin-bottom: 10px; }
-  .session-theme { font-family: 'Noto Serif JP', serif; font-size: 19px; font-weight: 700; line-height: 1.4; }
-  .session-body { padding: 22px 24px; }
-  .session-question { font-size: 13px; color: var(--blue); font-weight: 700; background: var(--blue-pale); padding: 10px 14px; border-radius: 4px; margin-bottom: 16px; line-height: 1.6; }
-  .session-items { list-style: none; font-size: 15px; color: var(--text-muted); }
-  .session-items li { padding: 5px 0 5px 18px; position: relative; border-bottom: 1px solid var(--border); }
-  .session-items li:last-child { border-bottom: none; }
-  .session-items li::before { content: '▸'; color: var(--blue-light); position: absolute; left: 0; font-size: 13px; top: 7px; }
-  .detail-bg { background: var(--blue-pale); }
-  .detail-section { max-width: 900px; margin: 0 auto; padding: 64px 40px; }
-  .detail-block { background: var(--white); border-radius: 6px; padding: 32px; margin-bottom: 24px; box-shadow: 0 2px 10px rgba(26,63,107,0.06); border-left: 4px solid var(--blue); }
-  .detail-block h3 { font-family: 'Noto Serif JP', serif; font-size: 20px; font-weight: 700; color: var(--blue-dark); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-  .detail-block h3 .badge { background: var(--blue); color: var(--white); font-size: 12px; padding: 3px 10px; border-radius: 10px; font-weight: 500; font-family: 'Noto Sans JP', sans-serif; }
-  .tl-item { display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px dashed var(--border); }
-  .tl-item:last-child { border-bottom: none; }
-  .tl-time { font-size: 14px; color: var(--blue); font-weight: 700; min-width: 90px; padding-top: 2px; white-space: nowrap; }
-  .tl-text { font-size: 15px; color: var(--text); }
-  .data-table { width: 100%; border-collapse: collapse; font-size: 15px; margin-top: 4px; }
-  .data-table th { background: var(--blue-dark); color: var(--white); padding: 12px 16px; text-align: left; font-weight: 500; font-size: 14px; }
-  .data-table td { padding: 13px 16px; border-bottom: 1px solid var(--border); }
-  .data-table tr:last-child td { border-bottom: none; }
-  .data-table tr:nth-child(even) td { background: var(--blue-pale); }
-  .data-table .key { font-weight: 700; color: var(--blue); }
-  .quote-box { background: var(--blue-pale); border-left: 3px solid var(--blue); padding: 18px 22px; border-radius: 0 4px 4px 0; margin-top: 16px; font-size: 16px; color: var(--blue-dark); font-style: italic; font-family: 'Noto Serif JP', serif; line-height: 1.8; }
-  .principles { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-  .principle-card { background: var(--white); border-radius: 6px; padding: 28px 24px; box-shadow: 0 2px 10px rgba(26,63,107,0.06); border-top: 3px solid var(--blue); }
-  .principle-num { font-size: 48px; font-family: 'Noto Serif JP', serif; font-weight: 900; color: rgba(26,95,160,0.08); line-height: 1; margin-bottom: 4px; }
-  .principle-title { font-weight: 700; color: var(--blue-dark); font-size: 15px; margin-bottom: 10px; }
-  .principle-desc { font-size: 15px; color: var(--text-muted); line-height: 1.9; }
-  .steps-bg { background: var(--blue-dark); }
-  .steps-section { max-width: 900px; margin: 0 auto; padding: 64px 40px; }
-  .steps-section .section-label { color: var(--blue-light); }
-  .steps-section .section-title { color: var(--white); border-color: var(--blue-light); }
-  .step-list { list-style: none; }
-  .step-item { display: flex; gap: 20px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-  .step-item:last-child { border-bottom: none; }
-  .step-num { background: var(--blue); color: var(--white); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; margin-top: 2px; }
-  .step-content strong { display: block; font-size: 17px; margin-bottom: 4px; color: var(--white); }
-  .step-content span { font-size: 15px; color: rgba(255,255,255,0.55); }
-  footer { background: #06213A; color: rgba(255,255,255,0.4); text-align: center; padding: 32px 40px; font-size: 12px; line-height: 2; }
-  footer strong { color: rgba(255,255,255,0.7); }
-  @media (max-width: 600px) {
-    .header-inner, .section, .detail-section, .steps-section { padding-left: 20px; padding-right: 20px; }
-    .purpose-box, .detail-block { padding: 24px 20px; }
-  }
+  @media print{.tab-nav,.submit-area{display:none}.tab-content{display:block!important}}
 </style>
 </head>
 <body>
-
 <div class="top-stripe"></div>
-
 <header>
   <div class="header-inner">
-    <div class="header-label">Research Preview / 2026.04</div>
-    <h1>
-      <span class="company">沖縄バス株式会社</span>
-      新人乗務員研修<br>設計提案
-    </h1>
+    <div class="header-label">2026.04 / 関係者説明資料</div>
+    <h1><span class="company">沖縄バス株式会社</span>新人乗務員研修　設計提案</h1>
     <div class="header-tagline">
       <p>「この会社は、あなたが長く働くことを本気で考えている」</p>
-      <p class="sub">関係者説明資料｜2026年4月</p>
+      <p class="sub">全3回 × 60分構成｜既存研修への組み込み型</p>
     </div>
-    <div class="header-meta">
-      <span>作成：2026年4月</span>
-      <span>全3回 × 60分構成</span>
-      <span>既存研修への組み込み型</span>
-    </div>
+    <div class="header-meta"><span>作成：2026年4月</span><span>全3回 × 60分</span><span>既存研修への組み込み型</span></div>
   </div>
 </header>
-
-<div class="separator"></div>
-
-<div class="section">
-  <div class="section-label">Background</div>
-  <div class="section-title">この研修で伝えたいこと</div>
-  <div class="purpose-box">
-    <div class="purpose-quote">
-      採用できても、辞められてしまう。<br>
-      その多くは<em>入社直後</em>に起きている。
-    </div>
-    <div class="purpose-desc">
-      業務の手順・安全規則は教わっても、会社の「なぜ」は伝わっていない。<br>
-      この研修では「なぜ」を新入社員自身が考え、発見する体験を作ります。<br>
-      「教える」のではなく「問う」設計。
-    </div>
-    <div class="purpose-pills">
-      <span class="pill">問い→発見→答え合わせ</span>
-      <span class="pill">社内担当者が進行できる設計</span>
-      <span class="pill">中途採用者の視点を活かす</span>
-    </div>
+<nav class="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" onclick="switchTab('explain',this)">📋 研修の説明</button>
+    <button class="tab-btn" onclick="switchTab('confirm',this)">✅ 内容の確認</button>
   </div>
-</div>
+</nav>
 
-<div style="background: var(--blue-pale);">
+<!-- 説明タブ -->
+<div id="tab-explain" class="tab-content active">
   <div class="section">
-    <div class="section-label">Structure</div>
-    <div class="section-title">1時間 × 3回　全体構成</div>
-    <p style="font-size:14px; color:var(--text-muted); margin-bottom:28px;">既存の新人乗務員研修プログラムに「序盤・中盤・終盤」で1コマずつ組み込みます。</p>
-    <div class="session-grid">
-      <div class="session-card">
-        <div class="session-header">
-          <div class="session-num">STEP 01</div>
-          <div class="session-timing-tag">研修 序盤</div>
-          <div class="session-theme">この会社を知る</div>
-        </div>
-        <div class="session-body">
-          <div class="session-question">問い：なぜ74年間倒産しなかったのか？</div>
-          <ul class="session-items">
-            <li>問いを立てる（5分）</li>
-            <li>ミニ社史：年表ダイジェスト（15分）</li>
-            <li>GW「74年の謎を解け」（20分）</li>
-            <li>答え合わせ：会長・社長の言葉（15分）</li>
-            <li>個人ワーク記入（5分）</li>
-          </ul>
-        </div>
+    <div class="section-label">Background</div>
+    <div class="section-title">この研修で伝えたいこと</div>
+    <div class="purpose-box">
+      <div class="purpose-quote">採用できても、辞められてしまう。<br>その多くは<em>入社直後</em>に起きている。</div>
+      <div class="purpose-desc">業務の手順・安全規則は教わっても、会社の「なぜ」は伝わっていない。<br>この研修では「なぜ」を新入社員自身が考え、発見する体験を作ります。<br>「教える」のではなく「問う」設計。</div>
+      <div class="purpose-pills"><span class="pill">問い→発見→答え合わせ</span><span class="pill">社内担当者が進行できる設計</span><span class="pill">中途採用者の視点を活かす</span></div>
+    </div>
+  </div>
+  <div style="background:var(--blue-pale)">
+    <div class="section">
+      <div class="section-label">Structure</div>
+      <div class="section-title">1時間 × 3回　全体構成</div>
+      <p style="font-size:15px;color:var(--text-muted);margin-bottom:26px">既存の新人乗務員研修プログラムに「序盤・中盤・終盤」で1コマずつ組み込みます。</p>
+      <div class="session-grid">
+        <div class="session-card"><div class="session-header"><div class="session-num">STEP 01</div><div class="session-timing-tag">研修 序盤</div><div class="session-theme">この会社を知る</div></div><div class="session-body"><div class="session-question">問い：なぜ74年間倒産しなかったのか？</div><ul class="session-items"><li>問いを立てる（5分）</li><li>ミニ社史：年表ダイジェスト（15分）</li><li>GW「74年の謎を解け」（20分）</li><li>答え合わせ：会長・社長の言葉（15分）</li><li>個人ワーク記入（5分）</li></ul></div></div>
+        <div class="session-card"><div class="session-header"><div class="session-num">STEP 02</div><div class="session-timing-tag">研修 中盤</div><div class="session-theme">この仕事で自分を守る</div></div><div class="session-body"><div class="session-question">問い：会社は怖いことにどう向き合うか？</div><ul class="session-items"><li>カスハラケーススタディ（25分）</li><li>WPP戦略：老後の安心（20分）</li><li>会社の安全網まとめ（10分）</li><li>個人ワーク記入（5分）</li></ul></div></div>
+        <div class="session-card"><div class="session-header"><div class="session-num">STEP 03</div><div class="session-timing-tag">研修 終盤</div><div class="session-theme">この会社でどう生きるか</div></div><div class="session-body"><div class="session-question">問い：ここで長く働く自分をどう描くか？</div><ul class="session-items"><li>社内独立エピソード（10分）</li><li>キャリアパス紹介（20分）</li><li>ビジョンシート記入（20分）</li><li>クロージング（10分）</li></ul></div></div>
       </div>
-      <div class="session-card">
-        <div class="session-header">
-          <div class="session-num">STEP 02</div>
-          <div class="session-timing-tag">研修 中盤</div>
-          <div class="session-theme">この仕事で自分を守る</div>
-        </div>
-        <div class="session-body">
-          <div class="session-question">問い：会社は怖いことにどう向き合うか？</div>
-          <ul class="session-items">
-            <li>カスハラケーススタディ（25分）</li>
-            <li>WPP戦略：老後の安心（20分）</li>
-            <li>会社の安全網まとめ（10分）</li>
-            <li>個人ワーク記入（5分）</li>
-          </ul>
-        </div>
+    </div>
+  </div>
+  <div style="background:var(--blue-pale)">
+    <div class="section">
+      <div class="section-label">Detail</div>
+      <div class="section-title">各回の詳細</div>
+      <div class="detail-block">
+        <h3>第1回「この会社を知る」<span class="badge">60分</span></h3>
+        <div class="tl-item"><div class="tl-time">0〜5分</div><div class="tl-text">問いを立てる</div></div>
+        <div class="tl-item"><div class="tl-time">5〜20分</div><div class="tl-text">ミニ社史：年表ダイジェスト</div></div>
+        <div class="tl-item"><div class="tl-time">20〜40分</div><div class="tl-text">GW「74年の謎を解け」</div></div>
+        <div class="tl-item"><div class="tl-time">40〜55分</div><div class="tl-text">答え合わせ：会長・社長の言葉で</div></div>
+        <div class="tl-item"><div class="tl-time">55〜60分</div><div class="tl-text">個人ワーク記入</div></div>
+        <div class="quote-box">会長・社長から直接うかがった「余剰金を不動産に回し続けた経営哲学」「コロナ期の旭町工場売却」「4社統合NO・東陽バス買収YES」を、参加者が考えた後に提示します。</div>
       </div>
-      <div class="session-card">
-        <div class="session-header">
-          <div class="session-num">STEP 03</div>
-          <div class="session-timing-tag">研修 終盤</div>
-          <div class="session-theme">この会社でどう生きるか</div>
-        </div>
-        <div class="session-body">
-          <div class="session-question">問い：ここで長く働く自分をどう描くか？</div>
-          <ul class="session-items">
-            <li>社内独立エピソード（10分）</li>
-            <li>キャリアパス紹介（20分）</li>
-            <li>ビジョンシート記入（20分）</li>
-            <li>クロージング（10分）</li>
-          </ul>
-        </div>
+      <div class="detail-block">
+        <h3>第2回「この仕事で自分を守る」<span class="badge">60分</span></h3>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:14px">カスハラ対応（25分）＋ WPP戦略（20分）＋ 安全網まとめ（10分）＋ ワーク（5分）</p>
+        <table class="data-table"><thead><tr><th>戦略</th><th>役割</th><th>沖縄バスでの接続</th></tr></thead><tbody><tr><td class="key">W｜Work Longer</td><td>先発投手</td><td>最大75歳まで就業可能</td></tr><tr><td class="key">P｜Private Pensions</td><td>中継ぎ</td><td>iDeCo・企業年金でつなぐ</td></tr><tr><td class="key">P｜Public Pensions</td><td>クローザー</td><td>繰下げ受給で最大84%増</td></tr></tbody></table>
+        <div class="quote-box">「怖いことがあっても、一人ではありません。制度があり、会社があり、仲間がいます。」</div>
       </div>
+      <div class="detail-block">
+        <h3>第3回「この会社でどう生きるか」<span class="badge">60分</span></h3>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:14px">新川社長からうかがった「社内独立」の実話をオープニングに使います。</p>
+        <table class="data-table"><thead><tr><th>キャリアビジョンシート</th><th>問い</th></tr></thead><tbody><tr><td>①</td><td>この会社を選んだ理由（一言）</td></tr><tr><td>②</td><td>今、やってみたいこと・不安なこと</td></tr><tr><td>③</td><td>1年後、どんな乗務員になりたいか</td></tr><tr><td>④</td><td>5年後、どんな仕事をしているか</td></tr><tr><td>⑤</td><td>長く働くために会社に期待すること</td></tr><tr><td>⑥</td><td>研修を通じて見方は変わったか</td></tr></tbody></table>
+        <div class="quote-box">「あなたたちも今日から、この74年続く思想の担い手になる」</div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Design Principles</div>
+    <div class="section-title">「押しつけない」ための設計3原則</div>
+    <div class="principles">
+      <div class="principle-card"><div class="principle-num">01</div><div class="principle-title">答えを先に言わない</div><div class="principle-desc">問いを立てて、参加者が自分で発見する体験を作る。生々しい話は参加者が考えた「後」に出す。</div></div>
+      <div class="principle-card"><div class="principle-num">02</div><div class="principle-title">比較させる</div><div class="principle-desc">中途採用者の「他社との違い」の視点を積極的に活用する。「変わらなかった」も正解。</div></div>
+      <div class="principle-card"><div class="principle-num">03</div><div class="principle-title">社内で完結させる</div><div class="principle-desc">社内担当者がファシリテーターガイドに沿って進行できる設計。外部依存なし。</div></div>
+    </div>
+  </div>
+  <div class="steps-bg">
+    <div class="steps-section">
+      <div class="section-label">Next Steps</div>
+      <div class="section-title">次のステップ</div>
+      <ul class="step-list">
+        <li class="step-item"><div class="step-num">1</div><div class="step-content"><strong>内容の確認・✅をいただく</strong><span>「内容の確認」タブにて、各項目をご確認ください</span></div></li>
+        <li class="step-item"><div class="step-num">2</div><div class="step-content"><strong>照会事項の確認</strong><span>既存研修プログラム・研修担当者・各種制度の詳細</span></div></li>
+        <li class="step-item"><div class="step-num">3</div><div class="step-content"><strong>スライド・ワークシート制作</strong><span>✅をいただいた内容をもとに制作開始</span></div></li>
+        <li class="step-item"><div class="step-num">4</div><div class="step-content"><strong>ファシリテーター引き継ぎ・リハーサル実施</strong><span>社内担当者への引き継ぎと本番前確認</span></div></li>
+      </ul>
     </div>
   </div>
 </div>
 
-<div class="detail-bg">
-  <div class="detail-section">
-    <div class="section-label">Detail</div>
-    <div class="section-title">各回の詳細</div>
-
-    <div class="detail-block">
-      <h3>第1回「この会社を知る」<span class="badge">60分</span></h3>
-      <div class="tl-item"><div class="tl-time">0〜5分</div><div class="tl-text">問いを立てる</div></div>
-      <div class="tl-item"><div class="tl-time">5〜20分</div><div class="tl-text">ミニ社史：年表ダイジェスト</div></div>
-      <div class="tl-item"><div class="tl-time">20〜40分</div><div class="tl-text">GW「74年の謎を解け」</div></div>
-      <div class="tl-item"><div class="tl-time">40〜55分</div><div class="tl-text">答え合わせ：会長・社長の言葉で</div></div>
-      <div class="tl-item"><div class="tl-time">55〜60分</div><div class="tl-text">個人ワーク記入</div></div>
-      <div class="quote-box">会長・社長から直接うかがった「余剰金を不動産に回し続けた経営哲学」「コロナ期の旭町工場売却」「4社統合NO・東陽バス買収YES」を、参加者が考えた後に提示します。</div>
+<!-- 確認タブ -->
+<div id="tab-confirm" class="tab-content">
+  <div class="section">
+    <div class="section-label">Confirmation</div>
+    <div class="section-title">内容のご確認をお願いします</div>
+    <div class="confirm-intro">
+      <p>新人乗務員研修の設計を進める中で、中山良邦会長・新川幹雄社長をはじめ関係者の皆さまから、この会社の「普通の話」を直接うかがいました。</p>
+      <p>この資料は、うかがった内容を整理したものです。<strong style="color:#7EC8F0">✅をいただいた部分のみ研修に使用します。</strong>「ここは出さないでほしい」があれば、遠慮なくお申しつけください。</p>
+      <p class="note">※「会社を褒める資料」ではありません。事実を正確に伝えることが目的です。</p>
     </div>
 
-    <div class="detail-block">
-      <h3>第2回「この仕事で自分を守る」<span class="badge">60分</span></h3>
-      <p style="font-size:14px; color:var(--text-muted); margin-bottom:16px;">カスハラ対応（25分）＋ WPP戦略（20分）＋ 安全網まとめ（10分）＋ ワーク（5分）</p>
-      <table class="data-table">
-        <thead><tr><th>戦略</th><th>役割</th><th>沖縄バスでの接続</th></tr></thead>
-        <tbody>
-          <tr><td class="key">W｜Work Longer</td><td>先発投手</td><td>最大75歳まで就業可能</td></tr>
-          <tr><td class="key">P｜Private Pensions</td><td>中継ぎ</td><td>iDeCo・企業年金でつなぐ</td></tr>
-          <tr><td class="key">P｜Public Pensions</td><td>クローザー</td><td>繰下げ受給で最大84%増</td></tr>
-        </tbody>
-      </table>
-      <div class="quote-box">「怖いことがあっても、一人ではありません。制度があり、会社があり、仲間がいます。」</div>
+    <div class="confirm-block">
+      <div class="confirm-block-header"><div class="confirm-num">①</div><div class="confirm-block-title">他社との対比（倒産経歴）の記述</div></div>
+      <div class="confirm-content">
+        <p>研修では以下の事実を「問いのきっかけ」として使います。</p>
+        <table><thead><tr><th>会社名</th><th>状況</th></tr></thead><tbody><tr><td><strong>沖縄バス株式会社</strong></td><td>創業1950年。74年間、法的整理の経歴なし</td></tr><tr><td>琉球バス（現・琉球バス交通）</td><td>民事再生法の適用を経験。現在は第一交通産業グループ</td></tr><tr><td>那覇交通（現・那覇バス）</td><td>民事再生法の適用を経験。現在は第一交通産業グループ</td></tr><tr><td>東陽バス</td><td>民事再生法の適用を経験。2024年より沖縄バスの完全子会社</td></tr></tbody></table>
+      </div>
+      <div class="confirm-check-area">
+        <div class="confirm-check-label">ご確認ください</div>
+        <div class="check-row"><input type="checkbox" id="c1a"><label for="c1a">記述に誤りはない（使用可）</label></div>
+        <div class="check-row"><input type="checkbox" id="c1b"><label for="c1b">修正・追加がある（下記にご記入ください）</label></div>
+        <div class="comment-area"><label>修正・コメント：</label><textarea placeholder="修正点や追加情報があればこちらに"></textarea></div>
+      </div>
     </div>
 
-    <div class="detail-block">
-      <h3>第3回「この会社でどう生きるか」<span class="badge">60分</span></h3>
-      <p style="font-size:14px; color:var(--text-muted); margin-bottom:16px;">新川社長からうかがった「社内独立」の実話をオープニングに使います。</p>
-      <table class="data-table">
-        <thead><tr><th>キャリアビジョンシート</th><th>問い</th></tr></thead>
-        <tbody>
-          <tr><td>①</td><td>この会社を選んだ理由（一言）</td></tr>
-          <tr><td>②</td><td>今、やってみたいこと・不安なこと</td></tr>
-          <tr><td>③</td><td>1年後、どんな乗務員になりたいか</td></tr>
-          <tr><td>④</td><td>5年後、どんな仕事をしているか</td></tr>
-          <tr><td>⑤</td><td>長く働くために会社に期待すること</td></tr>
-          <tr><td>⑥</td><td>研修を通じて見方は変わったか</td></tr>
-        </tbody>
-      </table>
-      <div class="quote-box">「あなたたちも今日から、この74年続く思想の担い手になる」</div>
+    <div class="confirm-block">
+      <div class="confirm-block-header"><div class="confirm-num">②</div><div class="confirm-block-title">余剰金・不動産投資・コロナ期の動き</div></div>
+      <div class="confirm-content">
+        <ul><li>運行事業で生まれた余剰金を、本社ビル・土地などの不動産に投資してきた</li><li>不動産からの安定した賃料収入が、経営の厳しい時を乗り切れた</li><li>旭町の整備工場を移転・売却。余剰金で不動産と株を購入し、コロナ禍を乗り越えた</li></ul>
+      </div>
+      <div class="confirm-check-area">
+        <div class="confirm-check-label">ご確認ください</div>
+        <div class="check-row"><input type="checkbox" id="c2a"><label for="c2a">内容は正確である（使用可）</label></div>
+        <div class="check-row"><input type="checkbox" id="c2b"><label for="c2b">修正・追加がある（下記にご記入ください）</label></div>
+        <div class="comment-area"><label>修正・コメント：</label><textarea placeholder="修正点や追加情報があればこちらに"></textarea></div>
+      </div>
     </div>
-  </div>
-</div>
 
-<div class="section">
-  <div class="section-label">Design Principles</div>
-  <div class="section-title">「押しつけない」ための設計3原則</div>
-  <div class="principles">
-    <div class="principle-card">
-      <div class="principle-num">01</div>
-      <div class="principle-title">答えを先に言わない</div>
-      <div class="principle-desc">問いを立てて、参加者が自分で発見する体験を作る。生々しい話は参加者が考えた「後」に出す。</div>
+    <div class="confirm-block">
+      <div class="confirm-block-header"><div class="confirm-num">③</div><div class="confirm-block-title">4社統合NO・東陽バス買収YESの判断</div></div>
+      <div class="confirm-content">
+        <p>どちらも「健全経営かどうか」という同じ判断基準から出た決断として研修で伝えます。</p>
+        <table><thead><tr><th>節目</th><th>判断</th><th>「健全経営」との接続</th></tr></thead><tbody><tr><td>2003年頃</td><td>4社統合NO</td><td>他3社の巨額負債を被ることは健全経営を損なうという判断</td></tr><tr><td>2024年</td><td>東陽バス買収YES</td><td>3年後に単年黒字の見込み＋グループシナジーと判断</td></tr></tbody></table>
+      </div>
+      <div class="confirm-check-area">
+        <div class="confirm-check-label">ご確認ください</div>
+        <div class="check-row"><input type="checkbox" id="c3a"><label for="c3a">整理は適切である（使用可）</label></div>
+        <div class="check-row"><input type="checkbox" id="c3b"><label for="c3b">修正・追加がある（下記にご記入ください）</label></div>
+        <div class="comment-area"><label>修正・コメント：</label><textarea placeholder="修正点や追加情報があればこちらに"></textarea></div>
+      </div>
     </div>
-    <div class="principle-card">
-      <div class="principle-num">02</div>
-      <div class="principle-title">比較させる</div>
-      <div class="principle-desc">中途採用者の「他社との違い」の視点を積極的に活用する。「変わらなかった」も正解。</div>
-    </div>
-    <div class="principle-card">
-      <div class="principle-num">03</div>
-      <div class="principle-title">社内で完結させる</div>
-      <div class="principle-desc">社内担当者がファシリテーターガイドに沿って進行できる設計。外部依存なし。</div>
-    </div>
-  </div>
-</div>
 
-<div class="steps-bg">
-  <div class="steps-section">
-    <div class="section-label">Next Steps</div>
-    <div class="section-title">次のステップ</div>
-    <ul class="step-list">
-      <li class="step-item">
-        <div class="step-num">1</div>
-        <div class="step-content"><strong>内容の確認・✅をいただく</strong><span>確認事項①〜⑥について、研修に使用可能かご確認ください</span></div>
-      </li>
-      <li class="step-item">
-        <div class="step-num">2</div>
-        <div class="step-content"><strong>照会事項の確認</strong><span>既存研修プログラム・研修担当者・各種制度の詳細</span></div>
-      </li>
-      <li class="step-item">
-        <div class="step-num">3</div>
-        <div class="step-content"><strong>スライド・ワークシート制作</strong><span>✅をいただいた内容をもとに制作開始</span></div>
-      </li>
-      <li class="step-item">
-        <div class="step-num">4</div>
-        <div class="step-content"><strong>ファシリテーター引き継ぎ・リハーサル実施</strong><span>社内担当者への引き継ぎと本番前確認</span></div>
-      </li>
-    </ul>
+    <div class="confirm-block">
+      <div class="confirm-block-header"><div class="confirm-num">④</div><div class="confirm-block-title">協働経営の系譜（人物・家系の関係）</div></div>
+      <div class="confirm-content">
+        <p>「中山家の会社」ではなく「中山家を核に複数の家系が協働して経営してきた会社」という理解で伝えます。</p>
+        <table><thead><tr><th>社史での登場</th><th>現在</th><th>つながり</th></tr></thead><tbody><tr><td>中山良輔（初代社長）</td><td>中山良邦（代表取締役会長）</td><td>ご子息</td></tr><tr><td>新川記一（元常務取締役）</td><td>新川幹雄（代表取締役社長）</td><td>ご子息</td></tr><tr><td>当時の役員たち</td><td>その子息が現在の部長職等</td><td>複数の家系が継続関与</td></tr></tbody></table>
+      </div>
+      <div class="confirm-check-area">
+        <div class="confirm-check-label">ご確認ください</div>
+        <div class="check-row"><input type="checkbox" id="c4a"><label for="c4a">誤りはない（使用可）</label></div>
+        <div class="check-row"><input type="checkbox" id="c4b"><label for="c4b">修正・追加がある（下記にご記入ください）</label></div>
+        <div class="comment-area"><label>修正・コメント：</label><textarea placeholder="修正点や追加情報があればこちらに"></textarea></div>
+      </div>
+    </div>
+
+    <div class="confirm-block">
+      <div class="confirm-block-header"><div class="confirm-num">⑤</div><div class="confirm-block-title">整備課長の社内独立エピソード</div></div>
+      <div class="confirm-content">
+        <ul><li>整備課長を務めていた方が、新川社長に「独立したい」と相談</li><li>社長は新工場の一角に板金修理場のスペースを提供</li><li>本人の創業計画書は採算が合わない金額だったが、社長のほうから好条件を逆提示</li><li>独立から2年以上が経過。本人はいきいきと働き、アイデアで事業の幅を広げている</li></ul>
+      </div>
+      <div class="confirm-check-area">
+        <div class="confirm-check-label">ご確認ください</div>
+        <div class="check-row"><input type="checkbox" id="c5a"><label for="c5a">内容は正確で、研修での使用可</label></div>
+        <div class="check-row"><input type="checkbox" id="c5b"><label for="c5b">修正がある（下記にご記入ください）</label></div>
+        <div class="check-row"><input type="checkbox" id="c5c"><label for="c5c">ご本人のコメントを研修で紹介することに同意可</label></div>
+        <div class="comment-area"><label>修正・コメント：</label><textarea placeholder="修正点や追加情報があればこちらに"></textarea></div>
+      </div>
+    </div>
+
+    <div class="confirm-block">
+      <div class="confirm-block-header"><div class="confirm-num">⑥</div><div class="confirm-block-title">3回の研修構成・内容への要望</div></div>
+      <div class="confirm-content"><p>第1回〜第3回の構成全体について、追加・修正のご要望があればお聞かせください。</p></div>
+      <div class="confirm-check-area">
+        <div class="confirm-check-label">ご確認ください</div>
+        <div class="check-row"><input type="checkbox" id="c6a"><label for="c6a">全体的に問題ない</label></div>
+        <div class="check-row"><input type="checkbox" id="c6b"><label for="c6b">追加・修正の要望がある（下記にご記入ください）</label></div>
+        <div class="comment-area"><label>ご要望・コメント：</label><textarea placeholder="追加・修正のご要望があればこちらに" style="min-height:120px"></textarea></div>
+      </div>
+    </div>
+
+    <div class="additional-section">
+      <h3>追加でお聞きしたいこと</h3>
+      <ul>
+        <li>新人乗務員研修の既存プログラムの全体像（どこに3コマを組み込むか）</li>
+        <li>研修担当者のご紹介（ファシリテーターとして引き継ぐ方）</li>
+        <li>両立支援制度の最新版（育休・介護休業等）</li>
+        <li>カスタマーハラスメント対応の社内方針・ガイドライン</li>
+      </ul>
+    </div>
+
+    <div class="submit-area">
+      <p class="submit-note">✅をいただいた部分だけを研修に使います。「ここは出さない」であれば、遠慮なくお申しつけください。</p>
+      <button class="print-btn" onclick="window.print()">🖨 印刷する</button>
+    </div>
   </div>
 </div>
 
 <footer>
   <strong>沖縄バス株式会社 新人乗務員研修 設計提案</strong><br>
-  2026年4月<br>
-  ✅をいただいた部分のみ研修に使用します。
+  2026年4月｜✅をいただいた部分のみ研修に使用します。
 </footer>
 
+<script>
+function switchTab(tab,btn){
+  document.querySelectorAll('.tab-content').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el=>el.classList.remove('active'));
+  document.getElementById('tab-'+tab).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
 </body>
 </html>
