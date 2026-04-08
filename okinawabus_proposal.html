@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>沖縄バス株式会社｜採用定着支援 提案書</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#1A5FA0;--blue-dark:#0A3D6B;--blue-light:#4A90C8;--blue-pale:#EAF3FB;
+    --white:#FFFFFF;--text:#1A1A1A;--text-muted:#555;--border:#C8DFF0;--cream:#F7FAFD;
+    --green:#1A7A4A;--green-pale:#E8F5EE;--gold:#B8860B;--gold-pale:#FDF8EC;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{font-size:18px;scroll-behavior:smooth}
+  body{font-family:'Noto Sans JP',sans-serif;background:var(--cream);color:var(--text);line-height:1.9}
+
+  /* ── TOP STRIPE ── */
+  .top-stripe{height:6px;background:linear-gradient(90deg,var(--blue-dark) 0%,var(--blue) 50%,var(--blue-light) 100%)}
+
+  /* ── HEADER ── */
+  header{background:var(--blue-dark);color:var(--white)}
+  .header-inner{max-width:920px;margin:0 auto;padding:52px 40px 44px}
+  .header-label{font-size:11px;letter-spacing:4px;color:var(--blue-light);font-weight:700;text-transform:uppercase;margin-bottom:16px}
+  header h1{font-family:'Noto Serif JP',serif;font-size:clamp(22px,4vw,38px);font-weight:900;line-height:1.4}
+  header h1 .company{display:block;font-size:clamp(13px,2vw,16px);font-weight:400;color:rgba(255,255,255,0.55);margin-bottom:8px;letter-spacing:2px}
+  .header-tagline{margin-top:26px;padding:20px 24px;border-left:3px solid var(--blue-light);background:rgba(255,255,255,0.05);border-radius:0 4px 4px 0}
+  .header-tagline p{font-family:'Noto Serif JP',serif;font-size:clamp(14px,2.2vw,20px);color:rgba(255,255,255,0.92);line-height:1.7}
+  .header-tagline .sub{font-size:13px;color:rgba(255,255,255,0.45);margin-top:6px;font-family:'Noto Sans JP',sans-serif;font-weight:300}
+  .header-meta{margin-top:24px;display:flex;gap:20px;font-size:12px;color:rgba(255,255,255,0.38);flex-wrap:wrap}
+
+  /* ── PAGE NAV ── */
+  .page-nav{background:var(--blue-dark);border-top:1px solid rgba(255,255,255,0.1);position:sticky;top:0;z-index:100;overflow-x:auto}
+  .page-nav-inner{max-width:920px;margin:0 auto;display:flex;padding:0 40px;white-space:nowrap}
+  .nav-btn{padding:14px 22px;font-size:14px;font-weight:700;color:rgba(255,255,255,0.45);background:none;border:none;border-bottom:3px solid transparent;cursor:pointer;transition:all 0.2s;font-family:'Noto Sans JP',sans-serif;text-decoration:none;display:inline-block}
+  .nav-btn:hover{color:rgba(255,255,255,0.8)}
+  .nav-btn.active{color:var(--white);border-bottom-color:var(--blue-light)}
+
+  /* ── SECTIONS ── */
+  .section{max-width:920px;margin:0 auto;padding:60px 40px}
+  .section-label{font-size:11px;letter-spacing:4px;color:var(--blue);font-weight:700;text-transform:uppercase;margin-bottom:10px}
+  .section-title{font-family:'Noto Serif JP',serif;font-size:clamp(19px,3vw,27px);font-weight:700;color:var(--blue-dark);margin-bottom:36px;padding-bottom:14px;border-bottom:2px solid var(--blue);display:inline-block}
+  .section-divider{border:none;border-top:1px solid var(--border);margin:0}
+
+  /* ── CORE MESSAGE BOX ── */
+  .core-box{background:var(--blue-dark);color:var(--white);border-radius:8px;padding:40px;margin-bottom:32px}
+  .core-box .core-label{font-size:11px;letter-spacing:3px;color:var(--blue-light);font-weight:700;margin-bottom:16px;text-transform:uppercase}
+  .core-quote{font-family:'Noto Serif JP',serif;font-size:clamp(16px,2.8vw,22px);font-weight:700;line-height:1.65;color:var(--white)}
+  .core-quote em{color:#7EC8F0;font-style:normal}
+  .core-desc{margin-top:18px;font-size:15px;color:rgba(255,255,255,0.65);line-height:1.9}
+
+  /* ── ISSUE CARDS ── */
+  .issue-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;margin-bottom:28px}
+  .issue-card{background:var(--white);border-radius:6px;padding:22px 20px;box-shadow:0 2px 12px rgba(26,63,107,0.07);border-top:3px solid var(--blue)}
+  .issue-card .issue-icon{font-size:22px;margin-bottom:8px}
+  .issue-card .issue-title{font-weight:700;color:var(--blue-dark);font-size:15px;margin-bottom:6px}
+  .issue-card .issue-text{font-size:13px;color:var(--text-muted);line-height:1.8}
+
+  /* ── COMPARISON TABLE ── */
+  .compare-wrap{overflow-x:auto;margin-bottom:10px}
+  .compare-table{width:100%;border-collapse:collapse;font-size:15px}
+  .compare-table th{background:var(--blue-dark);color:var(--white);padding:14px 18px;text-align:left;font-weight:500;font-size:14px}
+  .compare-table th:first-child{width:28%}
+  .compare-table td{padding:14px 18px;border-bottom:1px solid var(--border);vertical-align:top}
+  .compare-table tr:last-child td{border-bottom:none}
+  .compare-table tr:nth-child(even) td{background:var(--blue-pale)}
+  .compare-table .col-a{color:var(--text-muted)}
+  .compare-table .col-b{color:var(--blue-dark);font-weight:700}
+  .compare-table .col-highlight{background:var(--blue-pale)!important}
+
+  /* ── PHASE CARDS ── */
+  .phase-list{display:flex;flex-direction:column;gap:24px}
+  .phase-card{background:var(--white);border-radius:8px;overflow:hidden;box-shadow:0 2px 16px rgba(26,63,107,0.08)}
+  .phase-header{display:flex;align-items:center;gap:18px;padding:24px 28px;background:var(--blue);color:var(--white)}
+  .phase-num{font-family:'Noto Serif JP',serif;font-size:36px;font-weight:900;color:rgba(255,255,255,0.2);line-height:1;flex-shrink:0}
+  .phase-head-text{}
+  .phase-tag{font-size:10px;letter-spacing:3px;color:rgba(255,255,255,0.6);font-weight:700;text-transform:uppercase;margin-bottom:4px}
+  .phase-title{font-family:'Noto Serif JP',serif;font-size:clamp(16px,2.5vw,20px);font-weight:700;line-height:1.4}
+  .phase-body{padding:28px}
+  .phase-body p{font-size:15px;color:var(--text-muted);line-height:1.9;margin-bottom:18px}
+  .phase-body p:last-child{margin-bottom:0}
+
+  /* ── SESSION MINI CARDS ── */
+  .session-mini-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:22px}
+  .session-mini{background:var(--blue-pale);border-radius:6px;padding:16px 18px;border-left:3px solid var(--blue)}
+  .session-mini .s-num{font-size:10px;letter-spacing:2px;color:var(--blue);font-weight:700;margin-bottom:4px}
+  .session-mini .s-theme{font-weight:700;color:var(--blue-dark);font-size:15px;margin-bottom:4px}
+  .session-mini .s-q{font-size:13px;color:var(--text-muted);line-height:1.7}
+
+  /* ── EXPAND FLOW ── */
+  .expand-flow{display:flex;flex-direction:column;gap:0}
+  .expand-item{display:flex;gap:18px;align-items:flex-start;padding:18px 0;border-bottom:1px dashed var(--border)}
+  .expand-item:last-child{border-bottom:none}
+  .expand-dot{width:36px;height:36px;border-radius:50%;background:var(--blue);color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;margin-top:2px}
+  .expand-content strong{display:block;font-size:15px;font-weight:700;color:var(--blue-dark);margin-bottom:3px}
+  .expand-content span{font-size:13px;color:var(--text-muted);line-height:1.8}
+
+  /* ── VALUE BOX (GOLD) ── */
+  .value-box{background:var(--gold-pale);border:1px solid #E8C96B;border-left:4px solid var(--gold);border-radius:0 6px 6px 0;padding:22px 24px;margin-top:22px}
+  .value-box .value-label{font-size:11px;letter-spacing:3px;color:var(--gold);font-weight:700;margin-bottom:10px;text-transform:uppercase}
+  .value-box p{font-size:15px;color:#5A4200;line-height:1.9}
+
+  /* ── WHY BOX ── */
+  .why-box{background:var(--white);border-radius:8px;padding:32px;box-shadow:0 2px 12px rgba(26,63,107,0.07);border-left:4px solid var(--blue-light);margin-bottom:24px}
+  .why-box h3{font-family:'Noto Serif JP',serif;font-size:17px;font-weight:700;color:var(--blue-dark);margin-bottom:16px}
+  .why-box p{font-size:15px;color:var(--text-muted);line-height:1.9}
+  .why-box p+p{margin-top:12px}
+  .why-quote{background:var(--blue-pale);border-left:3px solid var(--blue);padding:16px 20px;border-radius:0 4px 4px 0;margin-top:18px;font-family:'Noto Serif JP',serif;font-size:16px;color:var(--blue-dark);line-height:1.8;font-style:italic}
+
+  /* ── SCHEDULE ── */
+  .sched-list{display:flex;flex-direction:column;gap:0}
+  .sched-item{display:flex;gap:0;align-items:stretch}
+  .sched-time{width:160px;min-width:160px;padding:18px 20px;background:var(--blue-dark);color:var(--white);font-size:13px;font-weight:700;display:flex;align-items:center;line-height:1.5;flex-shrink:0}
+  .sched-item:first-child .sched-time{border-radius:6px 0 0 0}
+  .sched-item:last-child .sched-time{border-radius:0 0 0 6px}
+  .sched-content{flex:1;padding:18px 22px;background:var(--white);border-bottom:1px solid var(--border);font-size:15px;color:var(--text);display:flex;align-items:center;line-height:1.7}
+  .sched-item:first-child .sched-content{border-radius:0 6px 0 0}
+  .sched-item:last-child .sched-content{border-bottom:none;border-radius:0 0 6px 0}
+  .sched-item:nth-child(odd) .sched-content{background:var(--blue-pale)}
+  .sched-badge{display:inline-block;background:var(--blue);color:var(--white);font-size:11px;padding:2px 10px;border-radius:10px;margin-right:10px;font-weight:700;vertical-align:middle;white-space:nowrap}
+  .sched-badge.done{background:var(--green)}
+  .sched-badge.now{background:#E07B00}
+
+  /* ── ACTION SECTION ── */
+  .action-bg{background:var(--blue-dark)}
+  .action-section{max-width:920px;margin:0 auto;padding:60px 40px}
+  .action-section .section-label{color:var(--blue-light)}
+  .action-section .section-title{color:var(--white);border-color:var(--blue-light)}
+  .action-list{list-style:none;display:flex;flex-direction:column;gap:16px}
+  .action-item{display:flex;gap:18px;align-items:flex-start;padding:20px 24px;background:rgba(255,255,255,0.06);border-radius:6px;border:1px solid rgba(255,255,255,0.1)}
+  .action-num{background:var(--blue);color:var(--white);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0;margin-top:2px}
+  .action-content strong{display:block;font-size:16px;color:var(--white);margin-bottom:4px}
+  .action-content span{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.7}
+
+  /* ── CLOSING ── */
+  .closing-section{max-width:920px;margin:0 auto;padding:60px 40px}
+  .closing-box{background:var(--white);border-radius:8px;padding:40px;box-shadow:0 2px 16px rgba(26,63,107,0.09);border-top:4px solid var(--blue)}
+  .closing-box p{font-size:16px;color:var(--text);line-height:2;margin-bottom:16px}
+  .closing-box p:last-of-type{margin-bottom:24px}
+  .closing-sig{font-size:14px;color:var(--text-muted);border-top:1px solid var(--border);padding-top:20px;line-height:2}
+  .closing-sig strong{color:var(--blue-dark)}
+
+  /* ── FOOTER ── */
+  footer{background:#06213A;color:rgba(255,255,255,0.4);text-align:center;padding:28px 40px;font-size:12px;line-height:2}
+  footer strong{color:rgba(255,255,255,0.7)}
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:640px){
+    .header-inner,.section,.steps-section,.action-section,.closing-section{padding-left:20px;padding-right:20px}
+    .page-nav-inner{padding:0 10px}
+    .nav-btn{padding:12px 12px;font-size:13px}
+    .phase-header{padding:18px 20px}
+    .phase-body{padding:20px}
+    .sched-time{width:120px;min-width:120px;font-size:12px}
+    .compare-table{font-size:13px}
+  }
+  @media print{
+    .page-nav{display:none}
+    .top-stripe{display:none}
+    body{background:white}
+    .phase-card,.why-box,.core-box{box-shadow:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<!-- ▼ HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="header-label">2026.04 / 採用定着支援 提案書</div>
+    <h1>
+      <span class="company">沖縄バス株式会社　ご関係者各位</span>
+      採用定着支援　提案書
+    </h1>
+    <div class="header-tagline">
+      <p>「75年間続く思想を、乗務員一人ひとりへ」</p>
+      <p class="sub">研修設計・内製化支援・グループ横展開　全3フェーズ構想</p>
+    </div>
+    <div class="header-meta">
+      <span>作成：2026年4月</span>
+      <span>木本努（いっきょう＠影褒め亭）</span>
+      <span>両立支援コーディネーター／キャリアコンサルタント</span>
+    </div>
+  </div>
+</header>
+
+<!-- ▼ PAGE NAV -->
+<nav class="page-nav">
+  <div class="page-nav-inner">
+    <a href="#issue" class="nav-btn active">課題認識</a>
+    <a href="#core" class="nav-btn">提案の核心</a>
+    <a href="#phases" class="nav-btn">3つのフェーズ</a>
+    <a href="#why" class="nav-btn">なぜ外部か</a>
+    <a href="#schedule" class="nav-btn">スケジュール</a>
+    <a href="#action" class="nav-btn">次のアクション</a>
+  </div>
+</nav>
+
+<!-- ▼ 1. 課題認識 -->
+<hr class="section-divider">
+<div class="section" id="issue">
+  <div class="section-label">Section 01</div>
+  <div class="section-title">課題認識：採用できても、定着しない</div>
+
+  <div class="issue-grid">
+    <div class="issue-card">
+      <div class="issue-icon">👥</div>
+      <div class="issue-title">乗務員不足</div>
+      <div class="issue-text">少子高齢化・他業種との競合で応募者が集まりにくい状況が続いています。</div>
+    </div>
+    <div class="issue-card">
+      <div class="issue-icon">🚪</div>
+      <div class="issue-title">早期離職</div>
+      <div class="issue-text">入社直後の数週間〜数ヶ月で離職が起きやすく、採用コストが回収できません。</div>
+    </div>
+    <div class="issue-card">
+      <div class="issue-icon">💬</div>
+      <div class="issue-title">思想の断絶</div>
+      <div class="issue-text">業務・安全規則は教わっても「なぜこの会社にいるか」が伝わっていません。</div>
+    </div>
+    <div class="issue-card">
+      <div class="issue-icon">🏢</div>
+      <div class="issue-title">グループ統合</div>
+      <div class="issue-text">東陽バスの完全子会社化により、グループ全体の採用定着が新たな経営課題になっています。</div>
+    </div>
+  </div>
+
+  <div class="core-box">
+    <div class="core-label">問いかけ</div>
+    <div class="core-quote">
+      75年間倒産しなかった会社の思想を、<em>入社したての乗務員に届けられていますか？</em>
+    </div>
+    <div class="core-desc">採用できても定着しない。その多くは入社直後に起きています。業務の手順・安全規則は教わっても、会社の「なぜ」は伝わっていません。この問いが、今回の提案の出発点です。</div>
+  </div>
+</div>
+
+<!-- ▼ 2. 提案の核心 -->
+<hr class="section-divider">
+<div class="section" id="core">
+  <div class="section-label">Section 02</div>
+  <div class="section-title">提案の核心：問題解決 × 価値創造</div>
+
+  <p style="font-size:16px;margin-bottom:28px;color:var(--text);">
+    採用定着支援を「問題解決だけ」で設計すると、コストを減らすための施策になります。しかし沖縄バスには、それ以上のものがあります。
+  </p>
+
+  <div class="core-box" style="margin-bottom:32px;">
+    <div class="core-label">沖縄バスだけが持つ事実</div>
+    <div class="core-quote">「75年間、法的整理を一度も経験していない会社」</div>
+    <div class="core-desc">沖縄のバス会社の中で沖縄バスだけが持つ事実です。その背景には、一貫した健全経営の思想があります。この思想を乗務員が「自分ごと」として受け取れた時、単に「辞めない」ではなく「ここで長く働きたい」という動機が生まれます。</div>
+  </div>
+
+  <div class="compare-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>視点</th>
+          <th>問題解決のみ</th>
+          <th class="col-highlight">問題解決 × 価値創造</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="key" style="font-weight:700;color:var(--blue-dark)">乗務員の動機</td>
+          <td class="col-a">「辞めたら損だから続ける」</td>
+          <td class="col-b">「この会社の思想の担い手でいたい」</td>
+        </tr>
+        <tr>
+          <td class="key" style="font-weight:700;color:var(--blue-dark)">効果の持続</td>
+          <td class="col-a">条件が変わると揺らぐ</td>
+          <td class="col-b">思想への共感は条件に左右されにくい</td>
+        </tr>
+        <tr>
+          <td class="key" style="font-weight:700;color:var(--blue-dark)">キャリアの見通し</td>
+          <td class="col-a">「続けるか辞めるかしかない」</td>
+          <td class="col-b">「ここで働くことで自分のキャリアが広がる」</td>
+        </tr>
+        <tr>
+          <td class="key" style="font-weight:700;color:var(--blue-dark)">会社の価値</td>
+          <td class="col-a">コスト管理が上手な会社</td>
+          <td class="col-b">「人が育ち、思想が続く会社」</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="value-box">
+    <div class="value-label">この提案のゴール</div>
+    <p>乗務員が「この会社の思想の担い手」として働ける組織が生まれた時、採用定着は「コスト削減」ではなく<strong>「会社の誇り」</strong>になります。</p>
+  </div>
+</div>
+
+<!-- ▼ 3. 3つのフェーズ -->
+<hr class="section-divider">
+<div class="section" id="phases">
+  <div class="section-label">Section 03</div>
+  <div class="section-title">提案内容：3つのフェーズ</div>
+
+  <div class="phase-list">
+
+    <!-- Phase 1 -->
+    <div class="phase-card">
+      <div class="phase-header">
+        <div class="phase-num">01</div>
+        <div class="phase-head-text">
+          <div class="phase-tag">Phase 1 ／ 研修設計・実施</div>
+          <div class="phase-title">新人乗務員研修（3回シリーズ）</div>
+        </div>
+      </div>
+      <div class="phase-body">
+        <p>既存の新人乗務員研修プログラムに「序盤・中盤・終盤」で1コマずつ組み込む形で設計しています。業務マニュアルではなく、会社の「なぜ」を届けます。</p>
+
+        <div class="session-mini-grid">
+          <div class="session-mini">
+            <div class="s-num">第1回 ／ 研修序盤</div>
+            <div class="s-theme">この会社を知る</div>
+            <div class="s-q">なぜ75年間倒産しなかったのか？</div>
+          </div>
+          <div class="session-mini">
+            <div class="s-num">第2回 ／ 研修中盤</div>
+            <div class="s-theme">この仕事で自分を守る</div>
+            <div class="s-q">会社は怖いことにどう向き合うか？</div>
+          </div>
+          <div class="session-mini">
+            <div class="s-num">第3回 ／ 研修終盤</div>
+            <div class="s-theme">この会社でどう生きるか</div>
+            <div class="s-q">ここで長く働く自分をどう描くか？</div>
+          </div>
+        </div>
+
+        <p style="margin-bottom:12px;"><strong style="color:var(--blue-dark);">第3回のポイント——キャリアの選択肢を広げる</strong></p>
+        <p>沖縄バスには、乗務員・バスガイドとして働いた経験が次のキャリアへの土台になった事例があります。アナウンサー、政治家など、バスガイドで培ったコミュニケーション力・対人力が生きた例がそれです。「続けるか辞めるか」の二択ではなく、<strong>ここで働くことがキャリアの幅を広げる</strong>——そのことを第3回で伝えます。乗務員にとって最大の「価値創造」の体験になります。</p>
+
+        <p style="margin-top:20px;margin-bottom:12px;"><strong style="color:var(--blue-dark);">設計の3原則</strong></p>
+        <div class="expand-flow">
+          <div class="expand-item">
+            <div class="expand-dot">1</div>
+            <div class="expand-content">
+              <strong>答えを先に言わない</strong>
+              <span>問いを立てて、参加者が自分で発見する体験を作る。会長・社長の一次情報は、考えた「後」に提示する。</span>
+            </div>
+          </div>
+          <div class="expand-item">
+            <div class="expand-dot">2</div>
+            <div class="expand-content">
+              <strong>比較させる</strong>
+              <span>中途採用者の「他社との違い」の視点を積極的に活かす。外から来た人間の目が、社内の常識を相対化する。</span>
+            </div>
+          </div>
+          <div class="expand-item">
+            <div class="expand-dot">3</div>
+            <div class="expand-content">
+              <strong>「教える」のではなく「問う」</strong>
+              <span>押しつけない設計。参加者が自分で発見したことだけが、本当に残る。</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="phase-card">
+      <div class="phase-header" style="background:var(--blue-dark);">
+        <div class="phase-num">02</div>
+        <div class="phase-head-text">
+          <div class="phase-tag">Phase 2 ／ 内製化支援</div>
+          <div class="phase-title">担当者ファシリテーター化</div>
+        </div>
+      </div>
+      <div class="phase-body">
+        <p>「いっきょうがいなくても回る研修」にすることが、長期的な定着につながります。社内担当者がファシリテーターガイドに沿って進行できる設計にし、御社の自走を支援します。</p>
+
+        <div class="expand-flow">
+          <div class="expand-item">
+            <div class="expand-dot" style="background:var(--blue-dark)">①</div>
+            <div class="expand-content">
+              <strong>ファシリテーターガイドの作成・共有</strong>
+              <span>進行手順・問いかけのタイミング・場の作り方を一冊にまとめます。</span>
+            </div>
+          </div>
+          <div class="expand-item">
+            <div class="expand-dot" style="background:var(--blue-dark)">②</div>
+            <div class="expand-content">
+              <strong>リハーサル実施・担当者引き継ぎ</strong>
+              <span>社内担当者と一緒に進行を確認。不安なく一人で動けるまでサポートします。</span>
+            </div>
+          </div>
+          <div class="expand-item">
+            <div class="expand-dot" style="background:var(--blue-dark)">③</div>
+            <div class="expand-content">
+              <strong>毎年の素材アップデート支援</strong>
+              <span>社長・会長から毎年新しいエピソードが生まれるたびに、研修素材に組み込みます。研修は育ちつづけるコンテンツになります。</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="phase-card">
+      <div class="phase-header" style="background:var(--green);">
+        <div class="phase-num">03</div>
+        <div class="phase-head-text">
+          <div class="phase-tag">Phase 3 ／ グループ展開</div>
+          <div class="phase-title">東陽バス・グループ横展開</div>
+        </div>
+      </div>
+      <div class="phase-body">
+        <p>2024年に完全子会社化した東陽バスは、今まさに「沖縄バスの文化に合流する」過渡期にあります。グループとしての採用定着を、経営統合の観点から設計します。</p>
+
+        <div class="expand-flow">
+          <div class="expand-item">
+            <div class="expand-dot" style="background:var(--green)">①</div>
+            <div class="expand-content">
+              <strong>東陽バス新人乗務員研修</strong>
+              <span>沖縄バスグループの思想を届ける研修を東陽バスへ展開。「グループの一員」としての誇りを育てます。</span>
+            </div>
+          </div>
+          <div class="expand-item">
+            <div class="expand-dot" style="background:var(--green)">②</div>
+            <div class="expand-content">
+              <strong>グループ管理職・マネジメント研修</strong>
+              <span>グループ文化の統合を管理職レベルで支援。両社が「同じ言葉」で動ける組織をつくります。</span>
+            </div>
+          </div>
+          <div class="expand-item">
+            <div class="expand-dot" style="background:var(--green)">③</div>
+            <div class="expand-content">
+              <strong>グループ合同研修・交流の場</strong>
+              <span>両社の乗務員が交流し、相互理解を深める場の設計・運営。グループとしての一体感を醸成します。</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="value-box" style="margin-top:24px;">
+          <div class="value-label">さらに先の展開</div>
+          <p>沖縄バスグループが「採用定着の成功モデル」になることで、同じ課題を持つ沖縄県内の交通事業者・中小企業からの問い合わせが生まれます。御社の取り組みが、業界全体の先例になります。</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /phase-list -->
+</div>
+
+<!-- ▼ 4. なぜ外部か -->
+<hr class="section-divider">
+<div class="section" id="why">
+  <div class="section-label">Section 04</div>
+  <div class="section-title">なぜ外部のいっきょうが担当するのか</div>
+
+  <div class="why-box">
+    <h3>「普通の話」が、実は「すごいこと」だった</h3>
+    <p>会長・社長にとって75年間の健全経営は当たり前にやってきたことです。しかし外から見た時、4社統合を単独で断り、コロナ禍でも先を見据えた経営判断で会社を守り抜き、東陽バスを収益の見通しを立てた上で買収する——これは並の経営ではありません。</p>
+    <p>その「普通の話」を、新入社員に届く言葉と体験に翻訳できるのが外部の役割です。社内の人間には「当たり前」に見えるものが、外の目には「宝」として見えます。</p>
+    <div class="why-quote">
+      「先日の提案書で、部長が『なんでわかるん？』とおっしゃったのは、この翻訳が届いた瞬間だと受け取っています。」
+    </div>
+  </div>
+
+  <div class="why-box" style="border-left-color:var(--green);">
+    <h3>両立支援コーディネーター／キャリアコンサルタントとしての視点</h3>
+    <p>人が「ここで長く働きたい」と思う瞬間はどこにあるか——それを専門的な視点で設計することが私の仕事です。乗務員一人ひとりのキャリアを、会社の思想と接続する研修設計に、この専門性を活かします。</p>
+    <p>外部の人間だからこそ書ける提案書があります。関わりのある関係性だからこそ、ちょうどよい角度から届けられます。</p>
+  </div>
+</div>
+
+<!-- ▼ 5. スケジュール -->
+<hr class="section-divider">
+<div class="section" id="schedule">
+  <div class="section-label">Section 05</div>
+  <div class="section-title">スケジュール（案）</div>
+
+  <div class="sched-list">
+    <div class="sched-item">
+      <div class="sched-time">2026年4〜5月</div>
+      <div class="sched-content"><span class="sched-badge now">進行中</span>幹部確認（✅確認）・研修内容の最終調整</div>
+    </div>
+    <div class="sched-item">
+      <div class="sched-time">2026年5〜6月</div>
+      <div class="sched-content">スライド・ワークシート・ファシリテーターガイド制作</div>
+    </div>
+    <div class="sched-item">
+      <div class="sched-time">2026年6〜7月</div>
+      <div class="sched-content">リハーサル実施・社内担当者への引き継ぎ</div>
+    </div>
+    <div class="sched-item">
+      <div class="sched-time">2026年7月〜</div>
+      <div class="sched-content">新人乗務員研修 第1期スタート</div>
+    </div>
+    <div class="sched-item">
+      <div class="sched-time">2026年後半〜</div>
+      <div class="sched-content">担当者による自走・東陽バス展開の検討開始</div>
+    </div>
+  </div>
+</div>
+
+<!-- ▼ 6. 次のアクション -->
+<div class="action-bg">
+  <div class="action-section" id="action">
+    <div class="section-label">Section 06</div>
+    <div class="section-title">次のアクション</div>
+
+    <ul class="action-list">
+      <li class="action-item">
+        <div class="action-num">①</div>
+        <div class="action-content">
+          <strong>全体構想へのご賛同</strong>
+          <span>フェーズ1〜3の全体構想について、ご意見・ご指摘をお聞かせください。</span>
+        </div>
+      </li>
+      <li class="action-item">
+        <div class="action-num">②</div>
+        <div class="action-content">
+          <strong>フェーズ1からのスタート確認</strong>
+          <span>まず新人乗務員研修3回シリーズからスタートする方向でよいか、ご確認ください。</span>
+        </div>
+      </li>
+      <li class="action-item">
+        <div class="action-num">③</div>
+        <div class="action-content">
+          <strong>幹部確認資料（✅確認）の日程調整</strong>
+          <span>研修内容の確認・修正をお願いできる日程を調整させてください。</span>
+        </div>
+      </li>
+      <li class="action-item">
+        <div class="action-num">④</div>
+        <div class="action-content">
+          <strong>研修担当者のご紹介</strong>
+          <span>ファシリテーターとして引き継ぐ社内担当者をご紹介いただけますと、内製化の準備を進められます。</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ▼ CLOSING -->
+<div class="closing-section">
+  <div class="closing-box">
+    <p>沖縄バスが75年間守り続けてきた思想は、今も会長・社長の言葉の中に生きています。</p>
+    <p>その思想が、入社したての乗務員にも届く仕組みを一緒につくりたいと考えています。</p>
+    <p>乗務員が「この会社の思想の担い手」として働ける組織が生まれた時、採用定着は「コスト削減」ではなく「会社の誇り」になります。</p>
+    <p>どうぞ、よろしくお願いいたします。</p>
+    <div class="closing-sig">
+      <strong>木本 努（いっきょう＠影褒め亭）</strong><br>
+      両立支援コーディネーター／キャリアコンサルタント<br>
+      2026年4月
+    </div>
+  </div>
+</div>
+
+<footer>
+  <strong>木本努（いっきょう＠影褒め亭）</strong>｜両立支援コーディネーター／キャリアコンサルタント<br>
+  採用定着支援 提案書 ／ 2026年4月
+</footer>
+
+<script>
+  // ナビゲーションのアクティブ状態をスクロールに連動
+  const sections = document.querySelectorAll('[id]');
+  const navBtns = document.querySelectorAll('.nav-btn');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navBtns.forEach(btn => {
+      btn.classList.remove('active');
+      if (btn.getAttribute('href') === '#' + current) btn.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
